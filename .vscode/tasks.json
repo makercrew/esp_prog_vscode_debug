@@ -1,0 +1,73 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build Firmware",
+            "type": "shell",
+            "command": "${config:esp_idf_command} build",
+            "options": {
+                "env": {
+                    "PATH": "${config:esp_extra_paths}"
+                }
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": [
+                "$gcc"
+            ]
+        },
+        {
+            "label": "OpenOCD",
+            "type": "shell",
+            "isBackground": true,
+            "options": {
+                "cwd": "${config:openocd_root_dir}"
+            },
+            "command": "bin/openocd -f interface/ftdi/esp32_devkitj_v1.cfg -f target/esp32.cfg",
+            "problemMatcher": []
+        },
+        {
+            "label": "Flash and Monitor Device",
+            "type": "shell",
+            "command": "${config:esp_idf_command} -p ${config:esp_device_port} -b ${config:esp_device_baud} flash monitor",
+            "options": {
+                "env": {
+                    "PATH": "${config:esp_extra_paths}"
+                }
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Flash Device",
+            "type": "shell",
+            "command": "${config:esp_idf_command} -p ${config:esp_device_port} -b ${config:esp_device_baud} flash",
+            "options": {
+                "env": {
+                    "PATH": "${config:esp_extra_paths}"
+                }
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Monitor Device",
+            "type": "shell",
+            "command": "${config:esp_idf_command} -p ${config:esp_device_port} -b ${config:esp_device_baud} monitor",
+            "options": {
+                "env": {
+                    "PATH": "${config:esp_extra_paths}"
+                }
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Clean Project",
+            "type": "shell",
+            "command": "${config:esp_idf_command} fullclean",
+            "problemMatcher": []
+        },
+    ]
+}
