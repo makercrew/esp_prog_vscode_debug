@@ -1,6 +1,6 @@
 # ESP-Prog Debugging in VSCode Sample Repo
 
-This is an example repository to quickly get you debugging and ESP32-based dev board with the ESP-Prog programmer in VSCode.
+This is an example repository to quickly get you debugging an ESP32-based dev board with the ESP-Prog programmer in VSCode.
 
 ## Features
 Includes VSCode tasks out of the box for:
@@ -14,15 +14,15 @@ Includes VSCode tasks out of the box for:
 
 ### New Project
 
-If you are starting a new project from scratch you can clone this repo directly and use it as a bare bones base to build on top of. After cloning, follow the instructions under the **Configuration** section below. 
+If you are starting a new project from scratch you can clone this repo directly and use it as a bare bones base to build on top of. After cloning, follow the instructions under the **Setup** and **Configuration** sections below. 
 
 ### Add To Existing Project
 
 If you already have an existing ESP32 firmware project setup in VSCode it is very simple to integrate pieces of this repository into your project. The core functionality to enable debugging is provided by 3 files in the **.vscode** folder.
 
   - **launch.json** - Contains the debug configuration
-  - **settings.json** - Contains environment specific paths to various tools required for building and debugging
-  - **tasks.json** - Defines various tasks for building, flashing, monitoring, and debugging
+  - **settings.json** - Contains environment-specific paths to various tools required for building and debugging
+  - **tasks.json** - Defines tasks for building, flashing, monitoring, and debugging
 
 If you don't have any of these files in your existing repo simply copy all of them into your **.vscode** folder. If you have a **launch.json** file I highly recommend you simply replace it with the file in this repo.
 
@@ -64,7 +64,7 @@ To configure the tasks and debug configuration there are a few tweaks you need t
 
 If you cloned this repository directly to start a new project this file does not need to be changed. Proceed to the next section.
 
-If you added this file to an existing project you need to change the **target** attribute to point to the elf file created during a firmware build. It will be named based on what you call your project in the top-level CMAkeLists.txt file.
+If you added this file to an existing project you need to change the **target** attribute to point to the elf file created during a firmware build. It will be named based on what you call your project in the top-level CMakeLists.txt file.
 
 ### tasks.json
 
@@ -72,15 +72,11 @@ No changes need to be made to this file.
 
 ## Debugging Instructions
 
-{% note %}
-
-**Note:** One thing I encountered was that both the ESP32 target device as well as the ESP-Prog will enumerate as `/dev/ttyUSB0` if plugged in first on Linux. Since the debug commands rely on the target device port being constant it's important that you plug in the target device first if you've configured **settings.json** to use `/dev/ttyUSB0` as the flash and monitor port. 
-
-{% endnote %}
+> **Note:** One thing I encountered was both the ESP32 target device as well as the ESP-Prog will enumerate as `/dev/ttyUSB0` if plugged in first on Linux. Since the debug commands rely on the target device port being constant it's important that you plug in the target device first if you've configured **settings.json** to use `/dev/ttyUSB0` as the flash and monitor port. 
 
   1. Attach the ESP-Prog to your target device via whatever JTAG cable is required.
   1. Plug the target device (the one you want to debug) into your computer.
-  1. Press **Ctrl-Alt-T** to launch the Task list in VSCode and select _Flash and Monitor Device_.
+  1. Press **Ctrl-Alt-T** to open the Task list in VSCode and select _Flash and Monitor Device_.
   1. The device should successfully flash and start showing serial output if applicable.
   1. Plug the ESP-Prog into your computer. The red LED should illuminate.
   1. Start a debug session with **F5** or **Run->Start Debugging** from the menu.
@@ -88,14 +84,10 @@ No changes need to be made to this file.
 ### Done 🤩
 From this state you can makes changes and flash new firmware. Starting a new debug session will reset and halt your device at your application entry point.
 
-{% note %}
-
-**Remember to Flash:** Starting a debug session, unlike in a normal software environment doesn't automatically update the code under debug. Anytime you make changes to your code remember to flash the device again before starting a debug session.
-
-{% endnote %}
+> **Remember to Flash:** Starting a debug session, unlike in a normal software IDE, doesn't automatically update the device with the new code. Anytime you make changes to your code remember to flash the device again before starting a debug session.
 
 ### It Stopped Working, Now What? 😞
-While I've found this to be a very reliable approach to debugging my ESP32 device occasionally things will stop working and it won't be clear why. The 'ol "turn it off and back on again" is pretty effective here. To fix almost any issues:
+I've found this to be a very reliable approach to debugging my ESP32 device. However, occasionally things will stop working and it won't be clear why. The 'ol "turn it off and back on again" is pretty effective here. To fix almost any issues:
 
   1. Make sure the debugger is stopped by hitting the Red square from the debug panel, hitting **Shift-F5** or **Run->Stop Debugging** from the menu.
   1. Stop OpenOCD by focusing the OpenOCD shell output window and hitting **Ctrl-C**.
@@ -111,7 +103,7 @@ Call Stack (most recent call first):
   run_esptool.cmake:21 (include)
 ```
 
-This is likely due to the fact that your target device is not at the `/dev/ttyXXX` path you have set in **settings.json**. See the note above about plug-in order. Another thing to try is to disconnect your ESP-Prog and try to flash your device. After successful flash you can reconnect the ESP-Prog to your computer.
+This can be due to the fact that your target device is not at the `/dev/ttyXXX` path you have set in **settings.json**. See the note above about plug-in order. Another thing to try is to disconnect your ESP-Prog and try to flash your device without the ESP-Prog connected. After successful flash you can reconnect the ESP-Prog to your computer.
 
 
 ## **-----> A Note on Versions <-----**
