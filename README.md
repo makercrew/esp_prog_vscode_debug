@@ -77,7 +77,7 @@ No changes need to be made to this file.
   1. Install the VS Code GDB extension https://marketplace.visualstudio.com/items?itemName=webfreak.debug
   2. Attach the ESP-Prog to your target device via whatever JTAG cable is required.
   3. Plug the target device (the one you want to debug) into your computer.
-  4. Press **Ctrl-Alt-T** to open the Task list in VSCode and select _Flash and Monitor Device_.
+  4. Press **Ctrl-Shift-P** to open the Task list in VS Code. Type 'Run Task' and press enter. Now select _Flash and Monitor Device_.
   5. The device should successfully flash and start showing serial output if applicable.
   6. Plug the ESP-Prog into your computer. The red LED should illuminate.
   7. Start a debug session with **F5** or **Run->Start Debugging** from the menu.
