@@ -74,12 +74,13 @@ No changes need to be made to this file.
 
 > **Note:** One thing I encountered was both the ESP32 target device as well as the ESP-Prog will enumerate as `/dev/ttyUSB0` if plugged in first on Linux. Since the debug commands rely on the target device port being constant it's important that you plug in the target device first if you've configured **settings.json** to use `/dev/ttyUSB0` as the flash and monitor port. 
 
-  1. Attach the ESP-Prog to your target device via whatever JTAG cable is required.
-  1. Plug the target device (the one you want to debug) into your computer.
-  1. Press **Ctrl-Alt-T** to open the Task list in VSCode and select _Flash and Monitor Device_.
-  1. The device should successfully flash and start showing serial output if applicable.
-  1. Plug the ESP-Prog into your computer. The red LED should illuminate.
-  1. Start a debug session with **F5** or **Run->Start Debugging** from the menu.
+  1. Install the VS Code GDB extension https://marketplace.visualstudio.com/items?itemName=webfreak.debug
+  2. Attach the ESP-Prog to your target device via whatever JTAG cable is required.
+  3. Plug the target device (the one you want to debug) into your computer.
+  4. Press **Ctrl-Shift-P** to open the Task list in VS Code. Type 'Run Task' and press enter. Now select _Flash and Monitor Device_.
+  5. The device should successfully flash and start showing serial output if applicable.
+  6. Plug the ESP-Prog into your computer. The red LED should illuminate.
+  7. Start a debug session with **F5** or **Run->Start Debugging** from the menu.
 
 ### Done 🤩
 From this state you can makes changes and flash new firmware. Starting a new debug session will reset and halt your device at your application entry point.
