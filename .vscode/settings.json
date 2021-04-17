@@ -22,8 +22,6 @@
     // location in the paths below
     "esp_python_bin": "[ESP_TOOLCHAIN_ROOT]/python_env/idf4.2_py3.8_env/bin",
 
-    "esp_python": "${esp_python_bin}/python",
-
     "esp_idf_command": "[ESP_TOOLCHAIN_ROOT]/python_env/idf4.2_py3.8_env/bin/python [ESP_IDF_ROOT]/tools/idf.py",
 
     "esp_elf_bin": "[ESP_TOOLCHAIN_ROOT]/tools/xtensa-esp32-elf/esp-2020r3-8.4.0/xtensa-esp32-elf/bin",
