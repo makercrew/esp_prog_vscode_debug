@@ -1,0 +1,3 @@
+# Assign fixed port names for ESP32 Prog Adapter
+SUBSYSTEMS=="usb", ATTRS{interface}=="Dual RS232-HS", KERNELS=="*:1.0", MODE:="0660", GROUP:="dialout", SYMLINK+="ttyUSB_jtag"
+SUBSYSTEMS=="usb", ATTRS{interface}=="Dual RS232-HS", KERNELS=="*:1.1", MODE:="0660", GROUP:="dialout", SYMLINK+="ttyUSB_prog"
