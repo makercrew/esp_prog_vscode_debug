@@ -1,38 +1,25 @@
 {
-    // The following items should be replaced throughout this file 
-    // with paths that match your environment. These will depend on
-    // where you have cloned the esp-idf source repo as well as where
-    // you chose to install the IDF tools. An easy way to do this is
-    // to highlight the item and use Ctrl-D to highlight all instances.
-    // You can then replace them all at once with your path.
+    // Update the following variables with paths that match your environment.
 
-    // [ESP_IDF_ROOT]
-    // [ESP_TOOLCHAIN_ROOT]
-
-    // For more information about tool installation see
-    // https://docs.espressif.com/projects/esp-idf/en/latest/esp32/get-started/index.html#step-3-set-up-the-tools
-
-
-    // The port and buad rate for flashing and monitoring your device
+    // The path to your device when it's attached via USB (default: `/dev/ttyUSB0`):
     "esp_device_port": "/dev/ttyUSB0",
+
+    // The serial baud rate to communicate with your device (default: `115200`):
     "esp_device_baud": 115200,
 
-    // The tools needed for building, flashing, and debugging
-    // ONLY change your espressif tools path and esp-idf repo
-    // location in the paths below
-    "esp_python_bin": "[ESP_TOOLCHAIN_ROOT]/python_env/idf4.2_py3.8_env/bin",
+    // The value in `esp_idf_path` has been defaulted based on the instructions
+    // provided by ESP regarding tool installation. see:
+    // https://docs.espressif.com/projects/esp-idf/en/latest/esp32/get-started/index.html#step-3-set-up-the-tools
+    "esp_idf_path":"${env:HOME}/esp/esp-idf",
 
-    "esp_idf_command": "[ESP_TOOLCHAIN_ROOT]/python_env/idf4.2_py3.8_env/bin/python [ESP_IDF_ROOT]/tools/idf.py",
+    // The tools needed for building, flashing, and debugging. These variables
+    // are for informational purposes ONLY, and should not need to be modified.
+    "esp_toolchain_root":"${env:HOME}/.espressif",
+    "esp_binutils_path": "${config:esp_toolchain_root}/tools/esp32ulp-elf/2.28.51-esp-20191205/esp32ulp-elf-binutils/bin",
+    "esp_gdb_path": "${config:esp_toolchain_root}/tools/xtensa-esp32-elf/esp-2021r2-patch3-8.4.0/xtensa-esp32-elf/bin",
+    "esp_idf_tools": "${config:esp_idf_path}/tools",
+    "esp_openocd_path": "${config:esp_toolchain_root}/tools/openocd-esp32/v0.11.0-esp32-20211220/openocd-esp32/bin",
+    "esp_python_path": "${config:esp_toolchain_root}/python_env/idf5.0_py3.9_env/bin",
 
-    "esp_elf_bin": "[ESP_TOOLCHAIN_ROOT]/tools/xtensa-esp32-elf/esp-2020r3-8.4.0/xtensa-esp32-elf/bin",
-
-    "esp_elf_binutils": "[ESP_TOOLCHAIN_ROOT]/tools/esp32ulp-elf/2.28.51-esp-20191205/esp32ulp-elf-binutils/bin",
-
-    "openocd_root_dir": "[ESP_TOOLCHAIN_ROOT]/tools/openocd-esp32/v0.10.0-esp32-20200709/openocd-esp32",
-
-    "esp_openocd_bin": "[ESP_TOOLCHAIN_ROOT]/tools/openocd-esp32/v0.10.0-esp32-20200709/openocd-esp32/bin",
-
-    "esp_extra_paths": "[ESP_TOOLCHAIN_ROOT]/python_env/idf4.2_py3.8_env/bin:/usr/bin:[ESP_TOOLCHAIN_ROOT]/tools/xtensa-esp32-elf/esp-2020r3-8.4.0/xtensa-esp32-elf/bin:[ESP_TOOLCHAIN_ROOT]/tools/esp32ulp-elf/2.28.51-esp-20191205/esp32ulp-elf-binutils/bin:[ESP_TOOLCHAIN_ROOT]/tools/openocd-esp32/v0.10.0-esp32-20200709/openocd-esp32/bin",
-
-    "esp_gdb": "[ESP_TOOLCHAIN_ROOT]/tools/xtensa-esp32-elf/esp-2020r3-8.4.0/xtensa-esp32-elf/bin/xtensa-esp32-elf-gdb",
+    "esp_toolchain_paths": "${config:esp_idf_tools}:${config:esp_python_path}:${config:esp_gdb_path}:${config:esp_binutils_path}:${config:esp_openocd_path}",
 }

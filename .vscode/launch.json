@@ -9,15 +9,19 @@
 			"type": "gdb",
 			"request": "launch",
 			"target": "./build/esp_prog_vscode_debug.elf",
-			"cwd": "${workspaceFolder}",
-			"gdbpath": "${config:esp_gdb}",
-			"preLaunchTask": "OpenOCD",
+			"cwd": "${workspaceRoot}",
+			"env": {
+				"PATH": "${config:esp_toolchain_paths}:${env:PATH}"
+			},
+			"gdbpath": "xtensa-esp32-elf-gdb",
+			"preLaunchTask": "Launch OpenOCD GDB Server",
 			"autorun": [
-				"target remote :3333",
+				"target extended-remote :3333",
 				"mon reset halt",
 				"flushregs",
 				"thb app_main",
-				"c"
+				"c",
+				"monitor [target current] configure -event gdb-detach { shutdown }",
 			],
 		}
     ]
