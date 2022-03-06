@@ -10,19 +10,27 @@
     "dockerFile": "../Dockerfile",
 
     // Set *default* container specific settings.json values on container create.
-    "settings": {},
+    "settings": {
+            "C_Cpp.default.compilerPath": "${config:esp_toolchain_path}/xtensa-esp32-elf-gcc",
+            "terminal.integrated.defaultProfile.linux": "bash",
+            "terminal.integrated.env.linux": {
+                "PATH":"${config:esp_dev_env_path}:${env:PATH}",
+            },
+    },
 
     // Add the IDs of extensions you want installed when the container is created.
     "extensions": [
-		"ms-vscode.cpptools",
-		"twxs.cmake",
-		"webfreak.debug"
-	],
+        "ms-vscode.cpptools",
+        "twxs.cmake",
+        "webfreak.debug"
+    ],
 
     // Use 'forwardPorts' to make a list of ports inside the container available locally.
     // "forwardPorts": [],
+
     // Uncomment the next line to run commands after the container is created - for example installing curl.
     //"postCreateCommand": "apt-get update && apt-get install -y curl",
+
     // Uncomment when using a ptrace-based debugger like C++, Go, and Rust
     "runArgs": [
         "--device=/dev/bus/usb",
@@ -30,6 +38,7 @@
 
     // Uncomment to use the Docker CLI from inside the container. See https://aka.ms/vscode-remote/samples/docker-from-docker.
     // "mounts": [ "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind" ],
+
     // Uncomment to connect as a non-root user if you've added one. See https://aka.ms/vscode-remote/containers/non-root.
     "remoteUser": "maker"
 }
