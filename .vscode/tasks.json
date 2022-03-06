@@ -13,7 +13,7 @@
             "options": {
                 "cwd": "${workspaceRoot}",
                 "env": {
-                    "PATH": "${config:esp_toolchain_paths}:${env:PATH}"
+                    "PATH": "${config:esp_dev_env_path}:${env:PATH}"
                 }
             },
             "command": "idf.py build",
@@ -27,7 +27,7 @@
             "options": {
                 "cwd": "${workspaceRoot}",
                 "env": {
-                    "PATH": "${config:esp_toolchain_paths}:${env:PATH}"
+                    "PATH": "${config:esp_dev_env_path}:${env:PATH}"
                 }
             },
             "command": "idf.py fullclean",
@@ -39,7 +39,7 @@
             "options": {
                 "cwd": "${workspaceRoot}",
                 "env": {
-                    "PATH": "${config:esp_toolchain_paths}:${env:PATH}"
+                    "PATH": "${config:esp_dev_env_path}:${env:PATH}"
                 }
             },
             "command": "rm -rf build/",
@@ -51,7 +51,7 @@
             "options": {
                 "cwd": "${workspaceRoot}",
                 "env": {
-                    "PATH": "${config:esp_toolchain_paths}:${env:PATH}"
+                    "PATH": "${config:esp_dev_env_path}:${env:PATH}"
                 }
             },
             "command": "openocd -f interface/ftdi/esp32_devkitj_v1.cfg -f target/esp32.cfg -c \"program_esp build/esp_prog_vscode_debug.bin 0x10000 verify reset exit\" ",
@@ -64,19 +64,19 @@
             "options": {
                 "cwd": "${workspaceRoot}",
                 "env": {
-                    "PATH": "${config:esp_toolchain_paths}:${env:PATH}"
+                    "PATH": "${config:esp_dev_env_path}:${env:PATH}"
                 }
             },
-            "command": "openocd -f interface/ftdi/esp32_devkitj_v1.cfg -f target/esp32.cfg",
+            "command": "openocd -f interface/ftdi/esp32_devkitj_v1.cfg -f target/esp32.cfg -c \"esp32.cpu1 configure -rtos FreeRTOS\"",
             "problemMatcher": {
                 "pattern": {
-                    "regexp": "(Error|Warn) ?: .*",
+                    "regexp": "^(Error|Warn ): .*$",
                     "file": 1,
                     "location": 2,
                     "message": 3
                 },
                 "background": {
-                    "activeOnStart": true,
+                    "activeOnStart": false,
                     "beginsPattern": "Open On-Chip Debugger.*",
                     "endsPattern": "Info : Listening on port [0-9]{1,5} for gdb connections"
                 }
@@ -88,7 +88,7 @@
             "options": {
                 "cwd": "${workspaceRoot}",
                 "env": {
-                    "PATH": "${config:esp_toolchain_paths}:${env:PATH}"
+                    "PATH": "${config:esp_dev_env_path}:${env:PATH}"
                 }
             },
             "command": "idf.py -p ${config:esp_device_port} -b ${config:esp_device_baud} flash monitor",
@@ -100,7 +100,7 @@
             "options": {
                 "cwd": "${workspaceRoot}",
                 "env": {
-                    "PATH": "${config:esp_toolchain_paths}:${env:PATH}"
+                    "PATH": "${config:esp_dev_env_path}:${env:PATH}"
                 }
             },
             "command": "idf.py -p ${config:esp_device_port} -b ${config:esp_device_baud} flash",
@@ -112,7 +112,7 @@
             "options": {
                 "cwd": "${workspaceRoot}",
                 "env": {
-                    "PATH": "${config:esp_toolchain_paths}:${env:PATH}"
+                    "PATH": "${config:esp_dev_env_path}:${env:PATH}"
                 }
             },
             "command": "idf.py -p ${config:esp_device_port} -b ${config:esp_device_baud} monitor",
@@ -124,7 +124,7 @@
             "options": {
                 "cwd": "${workspaceRoot}",
                 "env": {
-                    "PATH": "${config:esp_toolchain_paths}:${env:PATH}"
+                    "PATH": "${config:esp_dev_env_path}:${env:PATH}"
                 }
             },
             "command": "printenv",

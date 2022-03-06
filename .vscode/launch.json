@@ -11,7 +11,7 @@
 			"target": "./build/esp_prog_vscode_debug.elf",
 			"cwd": "${workspaceRoot}",
 			"env": {
-				"PATH": "${config:esp_toolchain_paths}:${env:PATH}"
+				"PATH": "${config:esp_dev_env_path}:${env:PATH}"
 			},
 			"gdbpath": "xtensa-esp32-elf-gdb",
 			"preLaunchTask": "Launch OpenOCD GDB Server",
