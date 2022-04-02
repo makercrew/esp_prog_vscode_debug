@@ -43,12 +43,12 @@ from the corresponding files in this repo to yours.
 ### Install VSCode Dependencies
 
 ```none
-Name: Native Debug
-Id: webfreak.debug
-Description: GDB, LLDB & Mago-MI Debugger support for VSCode
-Version: 0.25.1
-Publisher: WebFreak
-VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=webfreak.debug
+Name: C/C++
+Id: ms-vscode.cpptools
+Description: C/C++ IntelliSense, debugging, and code browsing.
+Version: 1.9.7
+Publisher: Microsoft
+VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools
 ```
 
 ### Clone the ESP-IDF Repo

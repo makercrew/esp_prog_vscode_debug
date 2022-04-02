@@ -58,44 +58,7 @@
             "problemMatcher": []
         },
         {
-            "label": "Launch OpenOCD GDB Server",
-            "type": "shell",
-            "isBackground": true,
-            "options": {
-                "cwd": "${workspaceRoot}",
-                "env": {
-                    "PATH": "${config:esp_dev_env_path}:${env:PATH}"
-                }
-            },
-            "command": "openocd -f interface/ftdi/esp32_devkitj_v1.cfg -f target/esp32.cfg -c \"esp32.cpu1 configure -rtos FreeRTOS\"",
-            "problemMatcher": {
-                "pattern": {
-                    "regexp": "^(Error|Warn ): .*$",
-                    "file": 1,
-                    "location": 2,
-                    "message": 3
-                },
-                "background": {
-                    "activeOnStart": false,
-                    "beginsPattern": "Open On-Chip Debugger.*",
-                    "endsPattern": "Info : Listening on port [0-9]{1,5} for gdb connections"
-                }
-            }
-        },
-        {
-            "label": "Flash and Monitor Device",
-            "type": "shell",
-            "options": {
-                "cwd": "${workspaceRoot}",
-                "env": {
-                    "PATH": "${config:esp_dev_env_path}:${env:PATH}"
-                }
-            },
-            "command": "idf.py -p ${config:esp_device_port} -b ${config:esp_device_baud} flash monitor",
-            "problemMatcher": []
-        },
-        {
-            "label": "Flash Device",
+            "label": "Flash via Serial",
             "type": "shell",
             "options": {
                 "cwd": "${workspaceRoot}",
@@ -107,7 +70,7 @@
             "problemMatcher": []
         },
         {
-            "label": "Monitor Device",
+            "label": "Monitor Serial Output",
             "type": "shell",
             "options": {
                 "cwd": "${workspaceRoot}",
@@ -116,6 +79,18 @@
                 }
             },
             "command": "idf.py -p ${config:esp_device_port} -b ${config:esp_device_baud} monitor",
+            "problemMatcher": []
+        },
+        {
+            "label": "Flash via Serial and Monitor Serial Output",
+            "type": "shell",
+            "options": {
+                "cwd": "${workspaceRoot}",
+                "env": {
+                    "PATH": "${config:esp_dev_env_path}:${env:PATH}"
+                }
+            },
+            "command": "idf.py -p ${config:esp_device_port} -b ${config:esp_device_baud} flash monitor",
             "problemMatcher": []
         },
         {
