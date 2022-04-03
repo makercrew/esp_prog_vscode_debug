@@ -90,3 +90,6 @@ RUN ["dash", "-c", "\
     cd ./esp/esp-idf \
  && ./install.sh esp32 \
 "]
+
+# Step 4. Update development environment
+ENV LC_ALL=C
