@@ -130,5 +130,17 @@
             "command": "printenv",
             "problemMatcher": []
         },
+        {
+            "label": "Open ESP-IDF Menu Config",
+            "type": "shell",
+            "options": {
+                "cwd": "${workspaceRoot}",
+                "env": {
+                    "PATH": "${config:esp_dev_env_path}:${env:PATH}"
+                }
+            },
+            "command": "idf.py menuconfig",
+            "problemMatcher": []
+        },
     ]
 }
