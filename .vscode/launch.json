@@ -8,7 +8,7 @@
 			"name": "ESP-Prog Debug",
 			"type": "cppdbg",
 			"request": "launch",
-			"program": "${workspaceFolder}/build/esp_prog_vscode_debug.elf",
+			"program": "${workspaceRoot}/build/esp_prog_vscode_debug.elf",
 			"args": [],
 			"cwd": "${workspaceRoot}",
 			"environment": [
@@ -22,14 +22,19 @@
 			"miDebuggerPath": "${config:esp_toolchain_path}/xtensa-esp32-elf-gdb",
 			"debugServerPath": "${config:esp_openocd_path}/openocd",
 			"debugServerArgs": "-f interface/ftdi/esp32_devkitj_v1.cfg -f target/esp32.cfg -c \"esp32.cpu1 configure -rtos FreeRTOS\"",
-			"serverStarted": "Open On-Chip Debugger.*",
+			"serverStarted": "Listening on port [0-9]+ for gdb connections",
 			"filterStderr": true,
 			"filterStdout": false,
 			"launchCompleteCommand": "None",
-			"setupCommands": [
+			"postRemoteConnectCommands": [
 				{
 					"description": "Target Remote Device on Port 3333",
 					"text": "target extended-remote :3333",
+					"ignoreFailures": false
+				},
+				{
+					"description": "Respect Hardware Limitations (as prescribed by Espressif)",
+					"text": "set remote hardware-watchpoint-limit 2",
 					"ignoreFailures": false
 				},
 				{
