@@ -20,6 +20,8 @@
 			"externalConsole": false,
 			"MIMode": "gdb",
 			"miDebuggerPath": "${config:esp_toolchain_path}/xtensa-esp32-elf-gdb",
+			"miDebuggerServerAddress": ":3333",
+			"useExtendedRemote": true,
 			"debugServerPath": "${config:esp_openocd_path}/openocd",
 			"debugServerArgs": "-f interface/ftdi/esp32_devkitj_v1.cfg -f target/esp32.cfg -c \"esp32.cpu1 configure -rtos FreeRTOS\"",
 			"serverStarted": "Listening on port [0-9]+ for gdb connections",
@@ -27,11 +29,6 @@
 			"filterStdout": false,
 			"launchCompleteCommand": "None",
 			"postRemoteConnectCommands": [
-				{
-					"description": "Target Remote Device on Port 3333",
-					"text": "target extended-remote :3333",
-					"ignoreFailures": false
-				},
 				{
 					"description": "Respect Hardware Limitations (as prescribed by Espressif)",
 					"text": "set remote hardware-watchpoint-limit 2",
