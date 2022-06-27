@@ -13,6 +13,7 @@
             "options": {
                 "cwd": "${workspaceRoot}",
                 "env": {
+                    "IDF_PATH": "/home/maker/esp/esp-idf",
                     "PATH": "${config:esp_dev_env_path}:${env:PATH}"
                 }
             },
@@ -27,6 +28,7 @@
             "options": {
                 "cwd": "${workspaceRoot}",
                 "env": {
+                    "IDF_PATH": "/home/maker/esp/esp-idf",
                     "PATH": "${config:esp_dev_env_path}:${env:PATH}"
                 }
             },
@@ -63,6 +65,7 @@
             "options": {
                 "cwd": "${workspaceRoot}",
                 "env": {
+                    "IDF_PATH": "/home/maker/esp/esp-idf",
                     "PATH": "${config:esp_dev_env_path}:${env:PATH}"
                 }
             },
@@ -75,6 +78,7 @@
             "options": {
                 "cwd": "${workspaceRoot}",
                 "env": {
+                    "IDF_PATH": "/home/maker/esp/esp-idf",
                     "PATH": "${config:esp_dev_env_path}:${env:PATH}"
                 }
             },
@@ -87,6 +91,7 @@
             "options": {
                 "cwd": "${workspaceRoot}",
                 "env": {
+                    "IDF_PATH": "/home/maker/esp/esp-idf",
                     "PATH": "${config:esp_dev_env_path}:${env:PATH}"
                 }
             },
@@ -111,6 +116,8 @@
             "options": {
                 "cwd": "${workspaceRoot}",
                 "env": {
+                    "IDF_PATH": "/home/maker/esp/esp-idf",
+                    "LC_ALL": "C",
                     "PATH": "${config:esp_dev_env_path}:${env:PATH}"
                 }
             },

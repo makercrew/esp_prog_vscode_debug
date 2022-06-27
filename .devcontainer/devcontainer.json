@@ -37,16 +37,17 @@
             "${config:esp_idf_path}/components/xtensa/esp32/include",
         ],
         "C_Cpp.default.compilerPath": "${config:esp_toolchain_path}/xtensa-esp32-elf-gcc",
+        "idf.adapterTargetName": "esp32",
         "terminal.integrated.defaultProfile.linux": "bash",
         "terminal.integrated.env.linux": {
-            "PATH": "${config:esp_dev_env_path}:${env:PATH}",
+            "PATH": "${config:esp_dev_env_path}:${env:PATH}"
         },
     },
 
     // Add the IDs of extensions you want installed when the container is created.
     "extensions": [
         "ms-vscode.cpptools",
-        "twxs.cmake",
+        "twxs.cmake"
     ],
 
     // Use 'forwardPorts' to make a list of ports inside the container available locally.
@@ -57,7 +58,7 @@
 
     // Uncomment when using a ptrace-based debugger like C++, Go, and Rust
     "runArgs": [
-        "--device=/dev/bus/usb",
+        "--device=/dev/bus/usb"
     ],
 
     // Uncomment to use the Docker CLI from inside the container. See https://aka.ms/vscode-remote/samples/docker-from-docker.
