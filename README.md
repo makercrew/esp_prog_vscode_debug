@@ -95,10 +95,6 @@ to make to the files in the **.vscode** directory as follows.
   provided by ESP regarding tool installation. see:
   https://docs.espressif.com/projects/esp-idf/en/latest/esp32/get-started/index.html#step-3-set-up-the-tools
 
-- **esp_device_port** - The path to your device when it's attached via USB (default: `/dev/ttyUSB0`).
-
-- **esp_device_baud** - The serial baud rate to communicate with your device (default: `115200`).
-
 ### launch.json
 
 If you cloned this repository directly to start a new project this file does

@@ -58,7 +58,8 @@
 
     // Uncomment when using a ptrace-based debugger like C++, Go, and Rust
     "runArgs": [
-        "--device=/dev/bus/usb"
+        "--device=/dev/bus/usb",
+        // "--device=/dev/ttyUSB0"
     ],
 
     // Uncomment to use the Docker CLI from inside the container. See https://aka.ms/vscode-remote/samples/docker-from-docker.
