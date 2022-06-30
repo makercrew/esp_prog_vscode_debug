@@ -43,12 +43,12 @@ from the corresponding files in this repo to yours.
 ### Install VSCode Dependencies
 
 ```none
-Name: Native Debug
-Id: webfreak.debug
-Description: GDB, LLDB & Mago-MI Debugger support for VSCode
-Version: 0.25.1
-Publisher: WebFreak
-VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=webfreak.debug
+Name: C/C++
+Id: ms-vscode.cpptools
+Description: C/C++ IntelliSense, debugging, and code browsing.
+Version: 1.9.7
+Publisher: Microsoft
+VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools
 ```
 
 ### Clone the ESP-IDF Repo
@@ -94,10 +94,6 @@ to make to the files in the **.vscode** directory as follows.
   The value in `esp_idf_path` has been defaulted based on the instructions
   provided by ESP regarding tool installation. see:
   https://docs.espressif.com/projects/esp-idf/en/latest/esp32/get-started/index.html#step-3-set-up-the-tools
-
-- **esp_device_port** - The path to your device when it's attached via USB (default: `/dev/ttyUSB0`).
-
-- **esp_device_baud** - The serial baud rate to communicate with your device (default: `115200`).
 
 ### launch.json
 

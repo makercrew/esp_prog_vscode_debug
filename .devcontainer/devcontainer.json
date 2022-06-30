@@ -10,26 +10,61 @@
     "dockerFile": "../Dockerfile",
 
     // Set *default* container specific settings.json values on container create.
-    "settings": {},
+    "settings": {
+        "C_Cpp.default.includePath": [
+            "${default}",
+            "${workspaceFolder}/build/config",
+            "${config:esp_idf_path}/components/bootloader_support/include",
+            "${config:esp_idf_path}/components/bootloader_support/bootloader_flash/include",
+            "${config:esp_idf_path}/components/efuse/include",
+            "${config:esp_idf_path}/components/efuse/esp32/include/",
+            "${config:esp_idf_path}/components/esp_common/include",
+            "${config:esp_idf_path}/components/esp_hw_support/include",
+            "${config:esp_idf_path}/components/esp_hw_support/include/soc",
+            "${config:esp_idf_path}/components/esp_rom/include",
+            "${config:esp_idf_path}/components/esp_system/include",
+            "${config:esp_idf_path}/components/esp_system/port/include",
+            "${config:esp_idf_path}/components/esp_system/port/include/private",
+            "${config:esp_idf_path}/components/hal/include",
+            "${config:esp_idf_path}/components/hal/esp32/include",
+            "${config:esp_idf_path}/components/hal/platform_port/include",
+            "${config:esp_idf_path}/components/soc/include",
+            "${config:esp_idf_path}/components/soc/esp32/include",
+            "${config:esp_idf_path}/components/soc/esp32/include/soc",
+            "${config:esp_idf_path}/components/spi_flash/include",
+            "${config:esp_idf_path}/components/spi_flash/sim/stubs/log/include",
+            "${config:esp_idf_path}/components/xtensa/include",
+            "${config:esp_idf_path}/components/xtensa/esp32/include",
+        ],
+        "C_Cpp.default.compilerPath": "${config:esp_toolchain_path}/xtensa-esp32-elf-gcc",
+        "idf.adapterTargetName": "esp32",
+        "terminal.integrated.defaultProfile.linux": "bash",
+        "terminal.integrated.env.linux": {
+            "PATH": "${config:esp_dev_env_path}:${env:PATH}"
+        },
+    },
 
     // Add the IDs of extensions you want installed when the container is created.
     "extensions": [
-		"ms-vscode.cpptools",
-		"twxs.cmake",
-		"webfreak.debug"
-	],
+        "ms-vscode.cpptools",
+        "twxs.cmake"
+    ],
 
     // Use 'forwardPorts' to make a list of ports inside the container available locally.
     // "forwardPorts": [],
+
     // Uncomment the next line to run commands after the container is created - for example installing curl.
     //"postCreateCommand": "apt-get update && apt-get install -y curl",
+
     // Uncomment when using a ptrace-based debugger like C++, Go, and Rust
     "runArgs": [
         "--device=/dev/bus/usb",
+        // "--device=/dev/ttyUSB0"
     ],
 
     // Uncomment to use the Docker CLI from inside the container. See https://aka.ms/vscode-remote/samples/docker-from-docker.
     // "mounts": [ "source=/var/run/docker.sock,target=/var/run/docker.sock,type=bind" ],
+
     // Uncomment to connect as a non-root user if you've added one. See https://aka.ms/vscode-remote/containers/non-root.
     "remoteUser": "maker"
 }

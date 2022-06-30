@@ -1,25 +1,18 @@
 {
-    // Update the following variables with paths that match your environment.
-
-    // The path to your device when it's attached via USB (default: `/dev/ttyUSB0`):
-    "esp_device_port": "/dev/ttyUSB0",
-
-    // The serial baud rate to communicate with your device (default: `115200`):
-    "esp_device_baud": 115200,
-
-    // The value in `esp_idf_path` has been defaulted based on the instructions
-    // provided by ESP regarding tool installation. see:
+    // If necessary, update the value of `esp_idf_path` to match your
+    // environment. The value provided has been selected based on the
+    // instructions provided by ESP regarding tool installation, see:
     // https://docs.espressif.com/projects/esp-idf/en/latest/esp32/get-started/index.html#step-3-set-up-the-tools
     "esp_idf_path":"${env:HOME}/esp/esp-idf",
 
     // The tools needed for building, flashing, and debugging. These variables
-    // are for informational purposes ONLY, and should not need to be modified.
+    // are for informational purposes ONLY, and should NOT need to be modified.
+    "esp_idf_tools": "${config:esp_idf_path}/tools",
     "esp_toolchain_root":"${env:HOME}/.espressif",
     "esp_binutils_path": "${config:esp_toolchain_root}/tools/esp32ulp-elf/2.28.51-esp-20191205/esp32ulp-elf-binutils/bin",
-    "esp_gdb_path": "${config:esp_toolchain_root}/tools/xtensa-esp32-elf/esp-2021r2-patch3-8.4.0/xtensa-esp32-elf/bin",
-    "esp_idf_tools": "${config:esp_idf_path}/tools",
-    "esp_openocd_path": "${config:esp_toolchain_root}/tools/openocd-esp32/v0.11.0-esp32-20211220/openocd-esp32/bin",
+    "esp_openocd_path": "${config:esp_toolchain_root}/tools/openocd-esp32/v0.11.0-esp32-20220411/openocd-esp32/bin",
     "esp_python_path": "${config:esp_toolchain_root}/python_env/idf5.0_py3.9_env/bin",
+    "esp_toolchain_path": "${config:esp_toolchain_root}/tools/xtensa-esp32-elf/esp-2022r1-RC1-11.2.0/xtensa-esp32-elf/bin",
 
-    "esp_toolchain_paths": "${config:esp_idf_tools}:${config:esp_python_path}:${config:esp_gdb_path}:${config:esp_binutils_path}:${config:esp_openocd_path}",
+    "esp_dev_env_path": "${config:esp_idf_tools}:${config:esp_binutils_path}:${config:esp_openocd_path}:${config:esp_python_path}:${config:esp_toolchain_path}",
 }

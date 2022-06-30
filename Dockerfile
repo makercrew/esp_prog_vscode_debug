@@ -65,6 +65,7 @@ RUN ["dash", "-c", "\
      python3 \
      python3-pip \
      python3-setuptools \
+     python3-venv \
      udev \
      wget \
  && apt-get clean \
@@ -90,6 +91,3 @@ RUN ["dash", "-c", "\
     cd ./esp/esp-idf \
  && ./install.sh esp32 \
 "]
-
-# Step 4. Update development environment
-ENV LC_ALL=C
