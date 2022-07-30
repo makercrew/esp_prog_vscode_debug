@@ -61,7 +61,7 @@ of your choice on your machine. You will need the path to this location later on
 git clone --recursive https://github.com/espressif/esp-idf.git -b v5.0
 ```
 
-> _**NOTE:** If branch does not exist yet, then simply use `master` (v5.0 and
+> _**NOTE:** If branch does not exist yet, then simply use `main` (v5.0 and
 > higher required for M1 Mac support)._
 
 ### Install the ESP-IDF Toolchain
