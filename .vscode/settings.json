@@ -14,5 +14,5 @@
     "esp_python_path": "${config:esp_toolchain_root}/python_env/idf5.0_py3.9_env/bin",
     "esp_toolchain_path": "${config:esp_toolchain_root}/tools/xtensa-esp32-elf/esp-2022r1-RC1-11.2.0/xtensa-esp32-elf/bin",
 
-    "esp_dev_env_path": "${config:esp_idf_tools}:${config:esp_binutils_path}:${config:esp_openocd_path}:${config:esp_python_path}:${config:esp_toolchain_path}",
+    "esp_dev_env_path": "${config:esp_idf_tools}:${config:esp_binutils_path}:${config:esp_openocd_path}:${config:esp_python_path}:${config:esp_toolchain_path}:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
 }
