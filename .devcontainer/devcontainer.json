@@ -41,7 +41,7 @@
         "terminal.integrated.defaultProfile.linux": "bash",
         "terminal.integrated.env.linux": {
             "PATH": "${config:esp_dev_env_path}:${env:PATH}"
-        },
+        }
     },
 
     // Add the IDs of extensions you want installed when the container is created.
