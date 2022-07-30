@@ -8,7 +8,7 @@ board with the ESP-Prog programmer in VSCode.
 Includes VSCode tasks out of the box for:
   - Building firmware
   - Flashing firmware to your device
-  - Starting a debug session
+  - Debugging firmware integrated in VSCode
   - Monitoring your device over serial
   - Cleaning your build folder
 
@@ -35,8 +35,9 @@ If you don't have any of these files in your existing repo simply copy all of
 them into your **.vscode** folder. If you have a **launch.json** file I highly
 recommend you simply replace it with the file in this repo.
 
-If you already have a tasks and settings file you can simply add the contents
-from the corresponding files in this repo to yours.
+If you already have a `launch.json`, `settings.json`, or `tasks.json` file, then
+you can simply add the contents from the corresponding files in this repo to
+yours.
 
 ## Setup
 
@@ -60,8 +61,8 @@ of your choice on your machine. You will need the path to this location later on
 git clone --recursive https://github.com/espressif/esp-idf.git -b v5.0
 ```
 
-> _**NOTE:** If branch does not exist yet, then simply use `master` (v5.0 and
-> higher required M1 Mac support)._
+> _**NOTE:** If branch does not exist yet, then simply use `main` (v5.0 and
+> higher required for M1 Mac support)._
 
 ### Install the ESP-IDF Toolchain
 
@@ -101,20 +102,15 @@ If you cloned this repository directly to start a new project this file does
 not need to be changed. Proceed to the next section.
 
 If you added this file to an existing project you need to change the **target**
-attribute to point to the elf file created during a firmware build. It will be
-named based on what you call your project in the top-level CMakeLists.txt file.
+attribute to point to the `.elf` file created during a firmware build. It will
+be named based on what you call your project in the top-level `CMakeLists.txt`
+file.
 
 ### tasks.json
 
 No changes need to be made to this file.
 
 ## Debugging Instructions
-
-> _**NOTE:** One thing I encountered was both the ESP32 target device as well as
-> the ESP-Prog will enumerate as `/dev/ttyUSB0` if plugged in first on Linux.
-> Since the debug commands rely on the target device port being constant it's
-> important that you plug in the target device first if you've configured
-> **settings.json** to use `/dev/ttyUSB0` as the flash and monitor port._
 
 **ESP-Prog Connector Pinout Diagram:**
 
@@ -155,10 +151,15 @@ Call Stack (most recent call first):
   run_esptool.cmake:21 (include)
 ```
 
-This can be due to the fact that your target device is not at the `/dev/ttyXXX`
-path you have set in **settings.json**. See the note above about plug-in order.
+This can be due to the IDF not correctly identifying your target device during
+the original port scan (i.e. the wrong `/dev/ttyXXX` device). Both the ESP32
+target device, as well as the ESP-Prog, will enumerate as `/dev/ttyUSB0`
+(depending on whichever was plugged in first). Since the debug commands scan for
+the target device port in ascending order, it can be helpful if you plug in the
+target device first.
+
 Another thing to try is to disconnect your ESP-Prog and try to flash your device
-without the ESP-Prog connected. After successful flash you can reconnect the
+without the ESP-Prog connected. After successful flash, you can reconnect the
 ESP-Prog to your computer.
 
 ## **-----> A Note on Versions <-----**
