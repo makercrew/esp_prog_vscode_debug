@@ -87,7 +87,8 @@ RUN ["dash", "-c", "\
 
 # Step 3. Set up the tools
 # https://docs.espressif.com/projects/esp-idf/en/latest/esp32/get-started/index.html#step-3-set-up-the-tools
-ENV IDF_TARGET="esp32"
+
+ENV IDF_TARGET="esp32s3"
 RUN ["dash", "-c", "\
     cd ./esp/esp-idf \
  && ./install.sh ${IDF_TARGET} \
