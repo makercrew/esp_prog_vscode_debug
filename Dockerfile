@@ -82,12 +82,13 @@ USER ${USER}
 RUN ["dash", "-c", "\
     mkdir esp \
  && cd esp/ \
- && git clone --recursive https://github.com/espressif/esp-idf.git \
+ && git clone --recursive https://github.com/espressif/esp-idf.git --branch v5.0 \
 "]
 
 # Step 3. Set up the tools
 # https://docs.espressif.com/projects/esp-idf/en/latest/esp32/get-started/index.html#step-3-set-up-the-tools
+ENV IDF_TARGET="esp32"
 RUN ["dash", "-c", "\
     cd ./esp/esp-idf \
- && ./install.sh esp32 \
+ && ./install.sh ${IDF_TARGET} \
 "]

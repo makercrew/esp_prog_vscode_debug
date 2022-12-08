@@ -8,9 +8,9 @@
 			"name": "ESP-Prog Debug",
 			"type": "cppdbg",
 			"request": "launch",
-			"program": "${workspaceRoot}/build/esp_prog_vscode_debug.elf",
+			"program": "${workspaceFolder}/build/esp_prog_vscode_debug.elf",
 			"args": [],
-			"cwd": "${workspaceRoot}",
+			"cwd": "${workspaceFolder}",
 			"environment": [
 				{
 					"name": "PATH",

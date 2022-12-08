@@ -11,7 +11,7 @@
                 "isDefault": true
             },
             "options": {
-                "cwd": "${workspaceRoot}",
+                "cwd": "${workspaceFolder}",
                 "env": {
                     "IDF_PATH": "${config:esp_idf_path}",
                     "PATH": "${config:esp_dev_env_path}:${env:PATH}"
@@ -26,7 +26,7 @@
             "label": "Clean Project",
             "type": "shell",
             "options": {
-                "cwd": "${workspaceRoot}",
+                "cwd": "${workspaceFolder}",
                 "env": {
                     "IDF_PATH": "${config:esp_idf_path}",
                     "PATH": "${config:esp_dev_env_path}:${env:PATH}"
@@ -39,7 +39,7 @@
             "label": "Manually remove the `build/` Directory",
             "type": "shell",
             "options": {
-                "cwd": "${workspaceRoot}",
+                "cwd": "${workspaceFolder}",
             },
             "command": "rm -rf build/",
             "problemMatcher": []
@@ -48,7 +48,7 @@
             "label": "Flash Application via OpenOCD (ESP-Prog)",
             "type": "shell",
             "options": {
-                "cwd": "${workspaceRoot}",
+                "cwd": "${workspaceFolder}",
                 "env": {
                     "PATH": "${config:esp_dev_env_path}:${env:PATH}"
                 }
@@ -60,7 +60,7 @@
             "label": "Flash Bootloader, Partition Table and Application over USB",
             "type": "shell",
             "options": {
-                "cwd": "${workspaceRoot}",
+                "cwd": "${workspaceFolder}",
                 "env": {
                     "IDF_PATH": "${config:esp_idf_path}",
                     "PATH": "${config:esp_dev_env_path}:${env:PATH}"
@@ -73,7 +73,7 @@
             "label": "Monitor Serial Output",
             "type": "shell",
             "options": {
-                "cwd": "${workspaceRoot}",
+                "cwd": "${workspaceFolder}",
                 "env": {
                     "IDF_PATH": "${config:esp_idf_path}",
                     "PATH": "${config:esp_dev_env_path}:${env:PATH}"
@@ -86,7 +86,7 @@
             "label": "Flash over USB and Monitor Serial Output",
             "type": "shell",
             "options": {
-                "cwd": "${workspaceRoot}",
+                "cwd": "${workspaceFolder}",
                 "env": {
                     "IDF_PATH": "${config:esp_idf_path}",
                     "PATH": "${config:esp_dev_env_path}:${env:PATH}"
@@ -99,7 +99,7 @@
             "label": "Environment Check",
             "type": "shell",
             "options": {
-                "cwd": "${workspaceRoot}",
+                "cwd": "${workspaceFolder}",
                 "env": {
                     "PATH": "${config:esp_dev_env_path}:${env:PATH}"
                 }
@@ -111,7 +111,7 @@
             "label": "Open ESP-IDF Menu Config",
             "type": "shell",
             "options": {
-                "cwd": "${workspaceRoot}",
+                "cwd": "${workspaceFolder}",
                 "env": {
                     "IDF_PATH": "${config:esp_idf_path}",
                     "LC_ALL": "C",
